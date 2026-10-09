@@ -16,10 +16,11 @@ jobs:
           channel: 'stable'
           
       - run: flutter pub get
-      - run: flutter build apk --release
+      
+      # بناء التطبيق مع تحديد اسم الحزمة واسم العرض الرسمي
+      - run: flutter build apk --release --dart-define=APP_NAME="مركز الهدى العلمي"
       
       - uses: actions/upload-artifact@v4
         with:
-          name: app-release
+          name: alhuda-app-release
           path: build/app/outputs/flutter-apk/app-release.apk
-          
